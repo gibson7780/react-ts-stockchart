@@ -34,7 +34,6 @@ export default ({ stockInfo, chartData }: ComponentPropsType) => {
           zoomSliderType="None"
           dataSource={chartData}
           volumeType="Area"
-          yAxisInterval={200}
         />
       </DivContainer>
     </DivWeapper>
