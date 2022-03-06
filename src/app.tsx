@@ -4,7 +4,11 @@ import { getStockData } from './controllers/stockController';
 import StockChart2 from './components/StockChart';
 import InputSearchField from './components/InputSearchField';
 
-import { convertChartData, convertChartInfo } from './utils/stockChartModel';
+import {
+  convertChartData,
+  convertChartInfo,
+  responseModel,
+} from './utils/stockChartModel';
 
 const DEFAULT_SEARCH_WORD = 'MSFT';
 
@@ -22,13 +26,12 @@ const App = () => {
       symbol: searchWords,
     };
     getStockData(params).then((res) => {
-      if (res.error === 429) {
-        setErrorMessage('查詢太頻繁');
-      } else if (res.error || res['Error Message']) {
-        setErrorMessage('無資料');
-      } else {
-        setMyChartData(res);
+      const { response, errorMessage } = responseModel(res);
+      if (response) {
+        setMyChartData(response);
         setErrorMessage('');
+      } else if (errorMessage) {
+        setErrorMessage(errorMessage);
       }
     });
   };

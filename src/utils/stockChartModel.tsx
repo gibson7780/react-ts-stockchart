@@ -50,3 +50,20 @@ export const convertChartInfo = (data: any): ChartInfoType => {
   };
   return stockInfo;
 };
+
+interface ResponseModel {
+  response?: any;
+  errorMessage?: string;
+}
+export const responseModel = (res: any): ResponseModel => {
+  let response: ResponseModel = {};
+  if (res.error === 429) {
+    response.errorMessage = '查詢太頻繁';
+  } else if (res.error || res['Error Message']) {
+    response.errorMessage = '無資料';
+  } else {
+    response.response = res;
+    response.errorMessage = '';
+  }
+  return response;
+};
