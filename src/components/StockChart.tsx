@@ -17,18 +17,13 @@ export default ({ stockInfo, chartData }: ComponentPropsType) => {
           isToolbarVisible={false}
           chartType="Candle"
           chartTitle={Symbol}
-          titleAlignment="Left"
-          titleLeftMargin="25"
+          titleAlignment="center"
           titleTopMargin="10"
           titleBottomMargin="10"
-          subtitleAlignment="Left"
-          subtitleLeftMargin="25"
-          subtitleTopMargin="5"
-          subtitleBottomMargin="10"
           yAxisLabelLocation="OutsideLeft"
           yAxisMode="Numeric"
           yAxisTitle="(元)"
-          yAxisTitleLeftMargin="10"
+          yAxisTitleLeftMargin="0"
           yAxisTitleRightMargin="5"
           yAxisLabelLeftMargin="0"
           zoomSliderType="None"
@@ -69,6 +64,7 @@ const DivWeapper = styled.div`
   width: 100%;
   height: 600px;
   box-sizing: border-box;
+  margin-left: -30px;
 `;
 const DivContainer = styled.div`
   display: flex;

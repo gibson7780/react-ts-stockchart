@@ -1,5 +1,4 @@
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 const port = process.env.PORT || 3000;
 
